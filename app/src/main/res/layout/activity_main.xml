@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#03A9F4"
     tools:context=".MainActivity">
 
     <Button
@@ -24,7 +25,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="16dp"
-        android:progress="30"
+        android:max="45"
+        android:progress="20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,8 +35,11 @@
         android:id="@+id/textView_Timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
@@ -42,40 +47,58 @@
         android:id="@+id/textView_Score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
-
-    <TextView
-        android:id="@+id/textView_Quest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView_Score"
-        app:layout_constraintStart_toEndOf="@+id/textView_Timer"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Quest">
+        app:layout_constraintTop_toBottomOf="@+id/progressBar">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView_Quest"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/btn_answer_1"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:height="200dp"
-                android:text="Button" />
+                android:text="Button"
+                android:textSize="30sp"
+                android:visibility="invisible"
+                app:backgroundTint="#F44336" />
 
             <Button
                 android:id="@+id/btn_answer_2"
@@ -83,12 +106,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:height="200dp"
-                android:text="Button" />
+                android:text="Button"
+                android:textSize="30sp"
+                android:visibility="invisible"
+                app:backgroundTint="#FF5722" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/btn_answer_3"
@@ -96,7 +122,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:height="200dp"
-                android:text="Button" />
+                android:text="Button"
+                android:textSize="30sp"
+                android:visibility="invisible"
+                app:backgroundTint="#FFC107" />
 
             <Button
                 android:id="@+id/btn_answer_4"
@@ -104,7 +133,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:height="200dp"
-                android:text="Button" />
+                android:text="Button"
+                android:textSize="30sp"
+                android:visibility="invisible"
+                app:backgroundTint="#9C27B0" />
         </TableRow>
 
     </TableLayout>
@@ -115,9 +147,23 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_MM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MathsMadness"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#FF2222"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

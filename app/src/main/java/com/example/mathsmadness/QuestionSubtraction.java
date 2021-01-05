@@ -2,7 +2,7 @@ package com.example.mathsmadness;
 
 import java.util.Random;
 
-public class Question {
+public class QuestionSubtraction {
 
     private int firstNumber;
     private int secondNumber;
@@ -19,7 +19,7 @@ public class Question {
     private String questionAsked;
 
     //creates random question
-    public Question(int upperLimit){
+    public QuestionSubtraction(int upperLimit){
         this.upperLimit = upperLimit;
         Random randomNumber = new Random();
 

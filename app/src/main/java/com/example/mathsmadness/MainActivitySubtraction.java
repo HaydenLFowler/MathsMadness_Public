@@ -1,17 +1,16 @@
 package com.example.mathsmadness;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.os.Trace;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivitySubtraction extends AppCompatActivity {
 
     TextView textView_Timer, textView_Score, textView_Quest, textViewMessage;
     Button btn_start, btn_answer_1, btn_answer_2, btn_answer_3, btn_answer_4;
