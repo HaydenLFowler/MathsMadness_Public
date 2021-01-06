@@ -12,10 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivitySubtraction extends AppCompatActivity {
 
-    TextView textView_Timer, textView_Score, textView_Quest, textViewMessage;
-    Button btn_start, btn_answer_1, btn_answer_2, btn_answer_3, btn_answer_4;
+    TextView textView_Timer, textView_Score, textView_Quest_Sub, textViewMessage;
+    Button btn_start, btn_answer_5, btn_answer_6, btn_answer_7, btn_answer_8;
     ProgressBar progressBar;
-    Quiz game = new Quiz();
+    QuizSubtraction gameS = new QuizSubtraction();
 
     int secondsLeft = 45;
 
@@ -32,15 +32,15 @@ public class MainActivitySubtraction extends AppCompatActivity {
         @Override
         public void onFinish() {
 
-            btn_answer_1.setEnabled(false);
-            btn_answer_1.setVisibility(View.INVISIBLE);
-            btn_answer_2.setEnabled(false);
-            btn_answer_2.setVisibility(View.INVISIBLE);
-            btn_answer_3.setEnabled(false);
-            btn_answer_3.setVisibility(View.INVISIBLE);
-            btn_answer_4.setEnabled(false);
-            btn_answer_4.setVisibility(View.INVISIBLE);
-            textViewMessage.setText("Times Up! " + game.getAmountCorrect() + "/" + (game.getTotalQuest()-1));
+            btn_answer_5.setEnabled(false);
+            btn_answer_5.setVisibility(View.INVISIBLE);
+            btn_answer_6.setEnabled(false);
+            btn_answer_6.setVisibility(View.INVISIBLE);
+            btn_answer_7.setEnabled(false);
+            btn_answer_7.setVisibility(View.INVISIBLE);
+            btn_answer_8.setEnabled(false);
+            btn_answer_8.setVisibility(View.INVISIBLE);
+            textViewMessage.setText("Times Up! " + gameS.getAmountCorrect() + "/" + (gameS.getTotalQuest()-1));
 
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -58,23 +58,23 @@ public class MainActivitySubtraction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_subtraction);
 
         btn_start = findViewById(R.id.btn_start);
-        btn_answer_1 = findViewById(R.id.btn_answer_1);
-        btn_answer_2 = findViewById(R.id.btn_answer_2);
-        btn_answer_3 = findViewById(R.id.btn_answer_3);
-        btn_answer_4 = findViewById(R.id.btn_answer_4);
+        btn_answer_5 = findViewById(R.id.btn_answer_5);
+        btn_answer_6 = findViewById(R.id.btn_answer_6);
+        btn_answer_7 = findViewById(R.id.btn_answer_7);
+        btn_answer_8 = findViewById(R.id.btn_answer_8);
 
         textView_Score = findViewById(R.id.textView_Score);
-        textView_Quest = findViewById(R.id.textView_Quest);
+        textView_Quest_Sub = findViewById(R.id.textView_Quest_Sub);
         textView_Timer = findViewById(R.id.textView_Timer);
         textViewMessage = findViewById(R.id.textViewMessage);
 
         progressBar = findViewById(R.id.progressBar);
 
         textView_Score.setText("0 pts");
-        textView_Quest.setText("");
+        textView_Quest_Sub.setText("");
         textView_Timer.setText("0 Sec");
         textViewMessage.setText("Press Start");
 
@@ -85,7 +85,7 @@ public class MainActivitySubtraction extends AppCompatActivity {
                 Button start_button = (Button) v;
                 start_button.setVisibility(View.INVISIBLE);
                 secondsLeft = 45;
-                game = new Quiz();
+                gameS = new QuizSubtraction();
                 startQuiz();
                 timer.start();
             }
@@ -98,8 +98,8 @@ public class MainActivitySubtraction extends AppCompatActivity {
                 Button buttonClicked = (Button) v;
                 int answerChosen = Integer.parseInt(buttonClicked.getText().toString());
 
-                game.checkAnswer(answerChosen);
-                textView_Score.setText(Integer.toString(game.getScore()) + " Pts");
+                gameS.checkAnswer(answerChosen);
+                textView_Score.setText(Integer.toString(gameS.getScore()) + " Pts");
                 startQuiz();
 
             }
@@ -108,34 +108,34 @@ public class MainActivitySubtraction extends AppCompatActivity {
 
         btn_start.setOnClickListener(startButtonCL);
 
-        btn_answer_1.setOnClickListener(answerBtnClickListner);
-        btn_answer_2.setOnClickListener(answerBtnClickListner);
-        btn_answer_3.setOnClickListener(answerBtnClickListner);
-        btn_answer_4.setOnClickListener(answerBtnClickListner);
+        btn_answer_5.setOnClickListener(answerBtnClickListner);
+        btn_answer_6.setOnClickListener(answerBtnClickListner);
+        btn_answer_7.setOnClickListener(answerBtnClickListner);
+        btn_answer_8.setOnClickListener(answerBtnClickListner);
 
     }
 
     private void startQuiz() {
-        game.NewQuestion();
-        int [] answer = game.getCurrentQuestion().getAnswerArray();
+        gameS.NewQuestion();
+        int [] answer = gameS.getCurrentQuestion().getAnswerArray();
 
-        btn_answer_1.setText(Integer.toString(answer[0]));
-        btn_answer_2.setText(Integer.toString(answer[1]));
-        btn_answer_3.setText(Integer.toString(answer[2]));
-        btn_answer_4.setText(Integer.toString(answer[3]));
+        btn_answer_5.setText(Integer.toString(answer[0]));
+        btn_answer_6.setText(Integer.toString(answer[1]));
+        btn_answer_7.setText(Integer.toString(answer[2]));
+        btn_answer_8.setText(Integer.toString(answer[3]));
 
-        btn_answer_1.setEnabled(true);
-        btn_answer_1.setVisibility(View.VISIBLE);
-        btn_answer_2.setEnabled(true);
-        btn_answer_2.setVisibility(View.VISIBLE);
-        btn_answer_3.setEnabled(true);
-        btn_answer_3.setVisibility(View.VISIBLE);
-        btn_answer_4.setEnabled(true);
-        btn_answer_4.setVisibility(View.VISIBLE);
+        btn_answer_5.setEnabled(true);
+        btn_answer_5.setVisibility(View.VISIBLE);
+        btn_answer_6.setEnabled(true);
+        btn_answer_6.setVisibility(View.VISIBLE);
+        btn_answer_7.setEnabled(true);
+        btn_answer_7.setVisibility(View.VISIBLE);
+        btn_answer_8.setEnabled(true);
+        btn_answer_8.setVisibility(View.VISIBLE);
 
-        textView_Quest.setText(game.getCurrentQuestion().getQuestionAsked());
+        textView_Quest_Sub.setText(gameS.getCurrentQuestion().getQuestionAsked());
 
-        textViewMessage.setText(game.getAmountCorrect() + "/" + (game.getTotalQuest()-1));
+        textViewMessage.setText(gameS.getAmountCorrect() + "/" + (gameS.getTotalQuest()-1));
 
     }
 

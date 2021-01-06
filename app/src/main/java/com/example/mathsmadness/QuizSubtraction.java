@@ -5,12 +5,13 @@ import java.util.List;
 
 public class QuizSubtraction {
 
-    private List<Question> question;
+
+    private List<QuestionSubtraction> question;
     private int amountCorrect;
     private int amountIncorrect;
     private int totalQuest;
     private int score;
-    private Question currentQuestion;
+    private QuestionSubtraction currentQuestion;
 
 
     //sets start variables
@@ -20,15 +21,15 @@ public class QuizSubtraction {
         amountIncorrect = 0;
         totalQuest = 0;
         score = 0;
-        currentQuestion = new Question(15);
-        question = new ArrayList<Question>();
+        currentQuestion = new QuestionSubtraction(15);
+        question = new ArrayList<QuestionSubtraction>();
 
     }
 
     //generates a new question
     public void NewQuestion() {
 
-        currentQuestion = new Question(totalQuest * 2 + 5);
+        currentQuestion = new QuestionSubtraction(totalQuest * 2 + 5);
         totalQuest++;
         question.add(currentQuestion);
     }
@@ -53,11 +54,11 @@ public class QuizSubtraction {
 
     //Getter and Setter
 
-    public List<Question> getQuestion() {
+    public List<QuestionSubtraction> getQuestion() {
         return question;
     }
 
-    public void setQuestion(List<Question> question) {
+    public void setQuestion(List<QuestionSubtraction> question) {
         this.question = question;
     }
 
@@ -93,11 +94,11 @@ public class QuizSubtraction {
         this.score = score;
     }
 
-    public Question getCurrentQuestion() {
+    public QuestionSubtraction getCurrentQuestion() {
         return currentQuestion;
     }
 
-    public void setCurrentQuestion(Question currentQuestion) {
+    public void setCurrentQuestion(QuestionSubtraction currentQuestion) {
         this.currentQuestion = currentQuestion;
     }
 

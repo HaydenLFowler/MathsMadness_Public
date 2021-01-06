@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#03A9F4"
-    tools:context=".MainActivity">
+    tools:context=".MainActivitySubtraction">
 
     <Button
         android:id="@+id/btn_start"
@@ -75,7 +75,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView_Quest"
+                android:id="@+id/textView_Quest_Sub"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -90,7 +90,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btn_answer_1"
+                android:id="@+id/btn_answer_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/btn_answer_2"
+                android:id="@+id/btn_answer_6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -131,7 +131,7 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/btn_answer_3"
+                android:id="@+id/btn_answer_7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -146,7 +146,7 @@
                 android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/btn_answer_4"
+                android:id="@+id/btn_answer_8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -175,15 +175,14 @@
         android:id="@+id/textView_MM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MathsMadness Addition"
+        android:text="MathsMadness Subtraction"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="#FF0000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:layout_constraintVertical_bias="0.625" />
+        app:layout_constraintVertical_bias="0.615" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

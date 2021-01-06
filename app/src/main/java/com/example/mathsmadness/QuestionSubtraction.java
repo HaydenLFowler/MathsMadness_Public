@@ -25,8 +25,13 @@ public class QuestionSubtraction {
 
         this.firstNumber = randomNumber.nextInt(upperLimit);
         this.secondNumber = randomNumber.nextInt(upperLimit);
-        this.answer = this.firstNumber + this.secondNumber;
-        this.questionAsked = firstNumber + "+" + secondNumber + "=";
+
+        if(this.firstNumber < this.secondNumber){
+            this.answer = this.secondNumber - this.firstNumber;
+        }
+        else this.answer = this.firstNumber - this.secondNumber;
+
+        this.questionAsked = firstNumber + "-" + secondNumber + "=";
         this.answerPos = randomNumber.nextInt(4);
         this.answerArray = new int[] {0,1,2,3};
 
