@@ -28,10 +28,11 @@ public class QuestionSubtraction {
 
         if(this.firstNumber < this.secondNumber){
             this.answer = this.secondNumber - this.firstNumber;
+            this.questionAsked = secondNumber + "-" + firstNumber + "=";
         }
-        else this.answer = this.firstNumber - this.secondNumber;
+        else {this.answer = this.firstNumber - this.secondNumber;
+        this.questionAsked = firstNumber + "-" + secondNumber + "=";}
 
-        this.questionAsked = firstNumber + "-" + secondNumber + "=";
         this.answerPos = randomNumber.nextInt(4);
         this.answerArray = new int[] {0,1,2,3};
 

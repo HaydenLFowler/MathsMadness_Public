@@ -1,5 +1,6 @@
 package com.example.mathsmadness;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -13,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivitySubtraction extends AppCompatActivity {
 
     TextView textView_Timer, textView_Score, textView_Quest_Sub, textViewMessage;
-    Button btn_start, btn_answer_5, btn_answer_6, btn_answer_7, btn_answer_8;
+    Button btn_start, btn_answer_5, btn_answer_6, btn_answer_7, btn_answer_8, btn_home_sub;
     ProgressBar progressBar;
     QuizSubtraction gameS = new QuizSubtraction();
 
@@ -40,6 +41,7 @@ public class MainActivitySubtraction extends AppCompatActivity {
             btn_answer_7.setVisibility(View.INVISIBLE);
             btn_answer_8.setEnabled(false);
             btn_answer_8.setVisibility(View.INVISIBLE);
+            textView_Quest_Sub.setVisibility(View.INVISIBLE);
             textViewMessage.setText("Times Up! " + gameS.getAmountCorrect() + "/" + (gameS.getTotalQuest()-1));
 
             final Handler handler = new Handler();
@@ -47,6 +49,8 @@ public class MainActivitySubtraction extends AppCompatActivity {
                 @Override
                 public void run() {
                     btn_start.setVisibility(View.VISIBLE);
+                    btn_home_sub.setEnabled(true);
+                    btn_home_sub.setVisibility(View.VISIBLE);
                 }
             }, 5000);
 
@@ -65,6 +69,7 @@ public class MainActivitySubtraction extends AppCompatActivity {
         btn_answer_6 = findViewById(R.id.btn_answer_6);
         btn_answer_7 = findViewById(R.id.btn_answer_7);
         btn_answer_8 = findViewById(R.id.btn_answer_8);
+        btn_home_sub = findViewById(R.id.btn_home_sub);
 
         textView_Score = findViewById(R.id.textView_Score);
         textView_Quest_Sub = findViewById(R.id.textView_Quest_Sub);
@@ -91,6 +96,15 @@ public class MainActivitySubtraction extends AppCompatActivity {
             }
         };
 
+        btn_home_sub.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                openActivityHome();
+            }
+        });
+
+
         View.OnClickListener answerBtnClickListner = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +129,13 @@ public class MainActivitySubtraction extends AppCompatActivity {
 
     }
 
+    public void openActivityHome() {
+
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+
     private void startQuiz() {
         gameS.NewQuestion();
         int [] answer = gameS.getCurrentQuestion().getAnswerArray();
@@ -123,6 +144,10 @@ public class MainActivitySubtraction extends AppCompatActivity {
         btn_answer_6.setText(Integer.toString(answer[1]));
         btn_answer_7.setText(Integer.toString(answer[2]));
         btn_answer_8.setText(Integer.toString(answer[3]));
+
+        textView_Quest_Sub.setVisibility(View.VISIBLE);
+
+        btn_home_sub.setVisibility(View.INVISIBLE);
 
         btn_answer_5.setEnabled(true);
         btn_answer_5.setVisibility(View.VISIBLE);

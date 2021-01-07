@@ -12,6 +12,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private Button buttonAdd;
     private Button buttonSub;
+    private Button buttonExit;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,6 +21,15 @@ public class HomeActivity extends AppCompatActivity {
 
         buttonAdd = (Button) findViewById(R.id.button_addition);
         buttonSub = (Button) findViewById(R.id.button_subtraction);
+        buttonExit = (Button) findViewById(R.id.button_exit);
+
+        buttonExit.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
+            }
+        });
 
         buttonAdd.setOnClickListener( new View.OnClickListener() {
             @Override

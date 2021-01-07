@@ -2,6 +2,7 @@ package com.example.mathsmadness;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -14,7 +15,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     TextView textView_Timer, textView_Score, textView_Quest, textViewMessage;
-    Button btn_start, btn_answer_1, btn_answer_2, btn_answer_3, btn_answer_4;
+    Button btn_start, btn_answer_1, btn_answer_2, btn_answer_3, btn_answer_4, btn_home;
     ProgressBar progressBar;
     Quiz game = new Quiz();
 
@@ -42,12 +43,14 @@ public class MainActivity extends AppCompatActivity {
             btn_answer_4.setEnabled(false);
             btn_answer_4.setVisibility(View.INVISIBLE);
             textViewMessage.setText("Times Up! " + game.getAmountCorrect() + "/" + (game.getTotalQuest()-1));
-
+            textView_Quest.setVisibility(View.INVISIBLE);
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     btn_start.setVisibility(View.VISIBLE);
+                    btn_home.setEnabled(true);
+                    btn_home.setVisibility(View.VISIBLE);
                 }
             }, 5000);
 
@@ -60,8 +63,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btn_home = findViewById(R.id.btn_home);
 
         btn_start = findViewById(R.id.btn_start);
+
         btn_answer_1 = findViewById(R.id.btn_answer_1);
         btn_answer_2 = findViewById(R.id.btn_answer_2);
         btn_answer_3 = findViewById(R.id.btn_answer_3);
@@ -78,6 +83,14 @@ public class MainActivity extends AppCompatActivity {
         textView_Quest.setText("");
         textView_Timer.setText("0 Sec");
         textViewMessage.setText("Press Start");
+
+        btn_home.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivityHome();
+                finish();
+            }
+        });
 
         View.OnClickListener startButtonCL = new View.OnClickListener() {
             @Override
@@ -116,6 +129,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void openActivityHome() {
+
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+    }
+
     private void startQuiz() {
         game.NewQuestion();
         int [] answer = game.getCurrentQuestion().getAnswerArray();
@@ -124,6 +143,9 @@ public class MainActivity extends AppCompatActivity {
         btn_answer_2.setText(Integer.toString(answer[1]));
         btn_answer_3.setText(Integer.toString(answer[2]));
         btn_answer_4.setText(Integer.toString(answer[3]));
+
+        textView_Quest.setVisibility(View.VISIBLE);
+        btn_home.setVisibility(View.INVISIBLE);
 
         btn_answer_1.setEnabled(true);
         btn_answer_1.setVisibility(View.VISIBLE);
