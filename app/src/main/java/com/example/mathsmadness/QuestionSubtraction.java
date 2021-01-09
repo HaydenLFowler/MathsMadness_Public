@@ -26,6 +26,8 @@ public class QuestionSubtraction {
         this.firstNumber = randomNumber.nextInt(upperLimit);
         this.secondNumber = randomNumber.nextInt(upperLimit);
 
+
+        //Makes sure the question and answer always produce a positive answer
         if(this.firstNumber < this.secondNumber){
             this.answer = this.secondNumber - this.firstNumber;
             this.questionAsked = secondNumber + "-" + firstNumber + "=";
